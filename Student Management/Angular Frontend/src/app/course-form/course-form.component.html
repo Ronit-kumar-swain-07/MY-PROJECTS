@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <mat-card>
+
+        <h2>{{isEdit ? 'Update Course' : 'Add Course'}}</h2>
+
+        <form (ngSubmit)="isEdit ? updateCourse() : saveCourse()">
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Course Name</mat-label>
+
+                <input matInput name="courseName" [(ngModel)]="course.courseName" required>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Course Description</mat-label>
+
+                <textarea matInput rows="3" name="description" [(ngModel)]="course.description"> </textarea>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Duration</mat-label>
+
+                <input matInput name="duration" [(ngModel)]="course.duration" required>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Fee</mat-label>
+
+                <input matInput type="number" name="fee" [(ngModel)]="course.fee" required>
+
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">
+
+                {{isEdit ? 'Update' : 'Save'}}
+
+            </button>
+
+        </form>
+
+    </mat-card>
+
+</div>

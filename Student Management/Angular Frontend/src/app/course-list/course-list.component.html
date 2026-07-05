@@ -1,0 +1,110 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <div class="header">
+
+        <h2>Course Management</h2>
+
+        <div>
+
+            <button mat-raised-button color="primary" (click)="addCourse()">
+
+                <mat-icon>add</mat-icon>
+
+                Add Course
+
+            </button>
+
+            &nbsp;
+
+            <button mat-raised-button color="accent" (click)="exportExcel()">
+
+                <mat-icon>table_view</mat-icon>
+
+                Excel
+
+            </button>
+
+            &nbsp;
+
+            <button mat-raised-button color="warn" (click)="exportPDF()">
+
+                <mat-icon>picture_as_pdf</mat-icon>
+
+                PDF
+
+            </button>
+
+        </div>
+
+    </div>
+    <mat-form-field appearance="outline" class="search">
+
+        <mat-label>Search Course</mat-label>
+
+        <input matInput [(ngModel)]="searchText" (keyup)="searchCourse()">
+
+        <mat-icon matSuffix>search</mat-icon>
+
+    </mat-form-field>
+
+    <table class="course-table">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Course</th>
+
+                <th>Description</th>
+
+                <th>Duration</th>
+
+                <th>Fee</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let course of courses">
+
+                <td>{{course.id}}</td>
+
+                <td>{{course.courseName}}</td>
+
+                <td>{{course.description}}</td>
+
+                <td>{{course.duration}}</td>
+
+                <td>₹ {{course.fee}}</td>
+
+                <td>
+
+                    <button mat-icon-button color="primary" (click)="editCourse(course.id!)">
+
+                        <mat-icon>edit</mat-icon>
+
+                    </button>
+
+                    <button mat-icon-button color="warn" (click)="deleteCourse(course.id!)">
+
+                        <mat-icon>delete</mat-icon>
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

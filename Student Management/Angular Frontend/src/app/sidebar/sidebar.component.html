@@ -1,0 +1,48 @@
+<mat-nav-list>
+
+    <a
+        mat-list-item
+        routerLink="/dashboard"
+        routerLinkActive="active-link">
+
+        <mat-icon matListIcon>dashboard</mat-icon>
+
+        <span>Dashboard</span>
+
+    </a>
+
+    <a
+        mat-list-item
+        routerLink="/students"
+        routerLinkActive="active-link">
+
+        <mat-icon matListIcon>groups</mat-icon>
+
+        <span>Students</span>
+
+    </a>
+
+    <a
+        mat-list-item
+        routerLink="/add-student"
+        routerLinkActive="active-link">
+
+        <mat-icon matListIcon>person_add</mat-icon>
+
+        <span>Add Student</span>
+
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <a
+        mat-list-item
+        (click)="logout()">
+
+        <mat-icon matListIcon color="warn">logout</mat-icon>
+
+        <span>Logout</span>
+
+    </a>
+
+</mat-nav-list>

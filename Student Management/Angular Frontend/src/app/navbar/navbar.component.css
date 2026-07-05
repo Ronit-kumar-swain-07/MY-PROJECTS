@@ -1,0 +1,35 @@
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+button {
+    margin-left: 8px;
+}
+
+mat-icon {
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+
+    .title {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 12px;
+        margin-left: 2px;
+    }
+
+}

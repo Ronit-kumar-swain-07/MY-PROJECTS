@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+
+    <span class="title">
+
+        Student Management System
+
+    </span>
+
+    <span class="spacer"></span>
+
+    <button mat-button routerLink="/dashboard">
+
+        <mat-icon>dashboard</mat-icon>
+
+        Dashboard
+
+    </button>
+
+    <button mat-button routerLink="/students">
+
+        <mat-icon>groups</mat-icon>
+
+        Students
+
+    </button>
+
+    <button mat-button routerLink="/add-student">
+
+        <mat-icon>person_add</mat-icon>
+
+        Add Student
+
+    </button>
+
+    <a mat-button routerLink="/courses">
+        Courses
+    </a>
+
+    <button mat-raised-button color="warn" (click)="logout()">
+
+        <mat-icon>logout</mat-icon>
+
+        Logout
+
+    </button>
+
+</mat-toolbar>

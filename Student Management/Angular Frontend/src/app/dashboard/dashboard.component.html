@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">
+        Student Management Dashboard
+    </h1>
+
+    <div class="card-container">
+
+        <!-- Total Students -->
+
+        <mat-card class="dashboard-card">
+
+            <mat-card-content class="card-content">
+
+                <mat-icon class="dashboard-icon">
+                    groups
+                </mat-icon>
+
+                <h2>Total Students</h2>
+
+                <h1>{{ dashboard.totalStudents }}</h1>
+
+            </mat-card-content>
+
+        </mat-card>
+
+        <!-- Male Students -->
+
+        <mat-card class="dashboard-card">
+
+            <mat-card-content class="card-content">
+
+                <mat-icon class="dashboard-icon">
+                    male
+                </mat-icon>
+
+                <h2>Male Students</h2>
+
+                <h1>{{ dashboard.totalMaleStudents }}</h1>
+
+            </mat-card-content>
+
+        </mat-card>
+
+        <!-- Female Students -->
+
+        <mat-card class="dashboard-card">
+
+            <mat-card-content class="card-content">
+
+                <mat-icon class="dashboard-icon">
+                    female
+                </mat-icon>
+
+                <h2>Female Students</h2>
+
+                <h1>{{ dashboard.totalFemaleStudents }}</h1>
+
+            </mat-card-content>
+
+        </mat-card>
+
+        <mat-card class="dashboard-card">
+
+            <mat-card-content class="card-content">
+
+                <mat-icon class="dashboard-icon">
+                    school
+                </mat-icon>
+
+                <h2>Total Courses</h2>
+
+                <h1>{{ dashboard.totalCourses }}</h1>
+
+            </mat-card-content>
+
+        </mat-card>
+
+    </div>
+
+</div>

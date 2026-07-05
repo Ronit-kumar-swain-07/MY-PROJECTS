@@ -1,0 +1,123 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <div class="header">
+
+        <h2>Student Management</h2>
+
+        <div>
+
+            <button mat-raised-button color="primary" (click)="addStudent()">
+
+                <mat-icon>person_add</mat-icon>
+
+                Add Student
+
+            </button>
+
+            &nbsp;
+
+            <button mat-raised-button color="accent" (click)="exportExcel()">
+
+                <mat-icon>table_view</mat-icon>
+
+                Excel
+
+            </button>
+
+            &nbsp;
+
+            <button mat-raised-button color="warn" (click)="exportPDF()">
+
+                <mat-icon>picture_as_pdf</mat-icon>
+
+                PDF
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <mat-form-field appearance="outline" class="search-box">
+
+        <mat-label>Search Student</mat-label>
+
+        <input matInput [(ngModel)]="searchText" (keyup)="searchStudent()">
+
+        <mat-icon matSuffix>search</mat-icon>
+
+    </mat-form-field>
+
+    <table class="student-table">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th>Mobile</th>
+
+                <th>Course</th>
+
+                <th>Gender</th>
+
+                <th>DOB</th>
+
+                <th>Address</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let student of students">
+
+                <td>{{student.id}}</td>
+
+                <td>{{student.name}}</td>
+
+                <td>{{student.email}}</td>
+
+                <td>{{student.mobile}}</td>
+
+                <td>{{student.course}}</td>
+
+                <td>{{student.gender}}</td>
+
+                <td>{{student.dob}}</td>
+
+                <td>{{student.address}}</td>
+
+                <td>
+
+                    <button mat-icon-button color="primary" (click)="editStudent(student.id!)">
+
+                        <mat-icon>edit</mat-icon>
+
+                    </button>
+
+                    <button mat-icon-button color="warn" (click)="deleteStudent(student.id!)">
+
+                        <mat-icon>delete</mat-icon>
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

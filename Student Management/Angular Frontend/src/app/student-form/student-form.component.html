@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <mat-card>
+
+        <mat-card-header>
+
+            <mat-card-title>
+
+                {{ isEdit ? 'Update Student' : 'Add Student' }}
+
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <form (ngSubmit)="isEdit ? updateStudent() : saveStudent()">
+
+                <mat-form-field appearance="outline" class="full-width">
+
+                    <mat-label>Name</mat-label>
+
+                    <input matInput [(ngModel)]="student.name" name="name" required>
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+
+                    <mat-label>Email</mat-label>
+
+                    <input matInput type="email" [(ngModel)]="student.email" name="email" required>
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+
+                    <mat-label>Mobile</mat-label>
+
+                    <input matInput [(ngModel)]="student.mobile" name="mobile" required>
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+
+                    <mat-label>Course</mat-label>
+
+                    <mat-select name="course" [(ngModel)]="student.course" required>
+
+                        <mat-option *ngFor="let course of courses" [value]="course.courseName">
+
+                            {{course.courseName}}
+
+                        </mat-option>
+
+                    </mat-select>
+
+                </mat-form-field>
+
+                <label class="gender-label">
+
+                    Gender
+
+                </label>
+
+                <mat-radio-group [(ngModel)]="student.gender" name="gender">
+
+                    <mat-radio-button value="Male">
+
+                        Male
+
+                    </mat-radio-button>
+
+                    <mat-radio-button value="Female">
+
+                        Female
+
+                    </mat-radio-button>
+
+                </mat-radio-group>
+
+                <mat-form-field appearance="outline" class="full-width">
+
+                    <mat-label>Date of Birth</mat-label>
+
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="student.dob" name="dob">
+
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+
+                    </mat-datepicker-toggle>
+
+                    <mat-datepicker #picker></mat-datepicker>
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+
+                    <mat-label>Address</mat-label>
+
+                    <textarea matInput rows="4" [(ngModel)]="student.address" name="address">
+
+                    </textarea>
+
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" class="full-width" type="submit">
+
+                    {{ isEdit ? 'Update Student' : 'Save Student' }}
+
+                </button>
+
+            </form>
+
+        </mat-card-content>
+
+    </mat-card>
+
+</div>
