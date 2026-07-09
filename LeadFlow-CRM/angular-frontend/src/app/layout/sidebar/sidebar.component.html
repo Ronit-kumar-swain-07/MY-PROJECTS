@@ -1,0 +1,54 @@
+<div class="sidebar" [class.collapsed]="isCollapsed">
+
+    <div class="logo">
+        <i class="bi bi-bar-chart-fill"></i>
+        <span *ngIf="!isCollapsed">LeadFlow CRM</span>
+    </div>
+
+    <ul>
+
+        <li routerLinkActive="active">
+            <a routerLink="/dashboard">
+                <i class="bi bi-speedometer2"></i>
+                <span *ngIf="!isCollapsed">Dashboard</span>
+            </a>
+        </li>
+
+        <li routerLinkActive="active">
+            <a routerLink="/customers">
+                <i class="bi bi-people-fill"></i>
+                <span *ngIf="!isCollapsed">Customer Leads</span>
+            </a>
+        </li>
+
+        <li routerLinkActive="active">
+            <a routerLink="/lead-types">
+                <i class="bi bi-diagram-3-fill"></i>
+                <span *ngIf="!isCollapsed">Lead Types</span>
+            </a>
+        </li>
+
+        <li routerLinkActive="active">
+            <a routerLink="/follow-ups">
+                <i class="bi bi-calendar-check-fill"></i>
+                <span *ngIf="!isCollapsed">Follow Ups</span>
+            </a>
+        </li>
+
+        <li routerLinkActive="active">
+            <a routerLink="/notes">
+                <i class="bi bi-journal-text"></i>
+                <span *ngIf="!isCollapsed">Notes</span>
+            </a>
+        </li>
+
+        <li (click)="logout()">
+            <a href="javascript:void(0)">
+                <i class="bi bi-box-arrow-right"></i>
+                <span *ngIf="!isCollapsed">Logout</span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>

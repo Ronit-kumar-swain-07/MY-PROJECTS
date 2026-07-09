@@ -1,0 +1,172 @@
+.dashboard-container{
+padding:30px;
+background:#f5f7fb;
+min-height:100vh;
+font-family:Segoe UI,sans-serif;
+}
+
+.dashboard-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.dashboard-header h2{
+font-size:34px;
+font-weight:700;
+color:#1f2937;
+}
+
+.dashboard-header p{
+color:#6b7280;
+margin-top:6px;
+}
+
+.date{
+font-weight:600;
+color:#374151;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-bottom:30px;
+}
+
+.card{
+padding:25px;
+border-radius:18px;
+color:white;
+box-shadow:0 12px 30px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card h3{
+font-size:18px;
+margin-bottom:10px;
+}
+
+.card h1{
+font-size:42px;
+}
+
+.total{
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.new{
+background:linear-gradient(135deg,#06b6d4,#0891b2);
+}
+
+.interested{
+background:linear-gradient(135deg,#10b981,#059669);
+}
+
+.won{
+background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+.lost{
+background:linear-gradient(135deg,#ef4444,#dc2626);
+}
+
+.content-grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
+margin-bottom:30px;
+}
+
+.panel{
+background:white;
+padding:25px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.panel h3{
+margin-bottom:20px;
+color:#1f2937;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#2563eb;
+color:white;
+padding:14px;
+}
+
+td{
+padding:14px;
+border-bottom:1px solid #eee;
+}
+
+.badge{
+padding:5px 12px;
+border-radius:30px;
+color:white;
+font-size:12px;
+font-weight:600;
+}
+
+.new{background:#3b82f6;}
+.interested{background:#10b981;}
+.closed_won{background:#16a34a;}
+.closed_lost{background:#dc2626;}
+.follow_up{background:#f59e0b;}
+.negotiation{background:#8b5cf6;}
+.contacted{background:#06b6d4;}
+.visit_scheduled{background:#0ea5e9;}
+.not_interested{background:#6b7280;}
+
+.follow-card{
+background:#f8fafc;
+padding:15px;
+border-radius:12px;
+margin-bottom:15px;
+border-left:5px solid #2563eb;
+}
+
+.follow-card h4{
+margin-bottom:5px;
+}
+
+.quick-actions{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.quick-actions button{
+padding:15px 25px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.quick-actions button:hover{
+background:#1d4ed8;
+transform:translateY(-3px);
+}
+
+@media(max-width:900px){
+
+.content-grid{
+grid-template-columns:1fr;
+}
+
+}

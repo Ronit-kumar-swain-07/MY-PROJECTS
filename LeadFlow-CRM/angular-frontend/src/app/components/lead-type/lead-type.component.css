@@ -1,0 +1,182 @@
+.page-container{
+    padding:25px;
+    background:#f4f7fb;
+    min-height:100vh;
+    font-family:Segoe UI,sans-serif;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.header h2{
+    font-size:28px;
+    color:#1f2937;
+}
+
+.btn-add{
+    border:none;
+    background:#2563eb;
+    color:#fff;
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-add:hover{
+    background:#1d4ed8;
+}
+
+.search-box{
+    margin-bottom:20px;
+}
+
+.search-box input{
+    width:300px;
+    max-width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.table-card{
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#2563eb;
+    color:#fff;
+}
+
+thead th{
+    padding:15px;
+    text-align:left;
+}
+
+tbody td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+}
+
+tbody tr:hover{
+    background:#f8fbff;
+}
+
+.btn-edit{
+    background:#10b981;
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    margin-right:8px;
+    cursor:pointer;
+}
+
+.btn-delete{
+    background:#ef4444;
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.modal-backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    width:550px;
+    max-width:95%;
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    animation:popup .3s;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(.9);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+}
+
+.form-group label{
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+.form-group input,
+.form-group textarea{
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.modal-footer{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+}
+
+.btn-save{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:11px 24px;
+    border-radius:8px;
+}
+
+.btn-cancel{
+    background:#6b7280;
+    color:white;
+    border:none;
+    padding:11px 24px;
+    border-radius:8px;
+}
+
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+.table-card{
+overflow:auto;
+}
+
+table{
+min-width:700px;
+}
+
+}

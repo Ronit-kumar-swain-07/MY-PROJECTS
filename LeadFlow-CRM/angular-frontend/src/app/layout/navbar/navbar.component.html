@@ -1,0 +1,68 @@
+<nav class="navbar-custom">
+
+    <div class="left">
+
+        <h4>LeadFlow CRM</h4>
+
+    </div>
+
+    <div class="center">
+
+        <div class="search-box">
+
+            <i class="bi bi-search"></i>
+
+            <input
+                type="text"
+                placeholder="Search customers...">
+
+        </div>
+
+    </div>
+
+    <div class="right">
+
+        <!-- Theme Toggle -->
+
+        <button
+            class="btn btn-outline-secondary me-3"
+            (click)="toggleTheme()">
+
+            <i
+                class="bi"
+                [ngClass]="darkMode ? 'bi-sun-fill' : 'bi-moon-fill'">
+            </i>
+
+        </button>
+
+        <!-- Notification -->
+
+        <div class="notification">
+
+            <i class="bi bi-bell-fill"></i>
+
+            <span class="badge">3</span>
+
+        </div>
+
+        <!-- Date -->
+
+        <div class="date">
+
+            {{today | date:'dd MMM yyyy'}}
+
+        </div>
+
+        <!-- Profile -->
+
+        <div class="profile">
+
+            <i class="bi bi-person-circle"></i>
+
+            <span>{{adminName}}</span>
+
+        </div>
+
+    </div>
+
+</nav>

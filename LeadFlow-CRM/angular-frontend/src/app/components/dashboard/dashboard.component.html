@@ -1,0 +1,139 @@
+<div class="dashboard-container">
+
+    <!-- Header -->
+
+    <div class="dashboard-header">
+
+        <div>
+            <h2>LeadFlow CRM Dashboard</h2>
+            <p>Welcome back! Here's today's overview.</p>
+        </div>
+
+        <div class="date">
+            {{ today | date:'EEEE, dd MMMM yyyy' }}
+        </div>
+
+    </div>
+
+    <!-- Statistics -->
+
+    <div class="stats-grid">
+
+        <div class="card total">
+            <h3>Total Leads</h3>
+            <h1>{{ dashboard.totalLeads }}</h1>
+        </div>
+
+        <div class="card new">
+            <h3>New Leads</h3>
+            <h1>{{ dashboard.newLeads }}</h1>
+        </div>
+
+        <div class="card interested">
+            <h3>Interested Leads</h3>
+            <h1>{{ dashboard.interestedLeads }}</h1>
+        </div>
+
+        <div class="card won">
+            <h3>Closed Won</h3>
+            <h1>{{ dashboard.closedWon }}</h1>
+        </div>
+
+        <div class="card lost">
+            <h3>Closed Lost</h3>
+            <h1>{{ dashboard.closedLost }}</h1>
+        </div>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="content-grid">
+
+        <!-- Recent Leads -->
+
+        <div class="panel">
+
+            <h3>Recent Customer Leads</h3>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Status</th>
+                        <th>Assigned</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let lead of recentLeads">
+
+                        <td>{{ lead.customerName }}</td>
+
+                        <td>{{ lead.city }}</td>
+
+                        <td>
+                            <span class="badge"
+                                  [ngClass]="lead.status?.toLowerCase()">
+                                {{ lead.status }}
+                            </span>
+                        </td>
+
+                        <td>{{ lead.assignedTo }}</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Today's Follow Ups -->
+
+        <div class="panel">
+
+            <h3>Today's Follow Ups</h3>
+
+            <div class="follow-card" *ngFor="let f of followUps">
+
+                <h4>{{ f.customerLead?.customerName }}</h4>
+
+                <p>{{ f.discussion }}</p>
+
+                <small>{{ f.followupTime }}</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="quick-actions">
+
+        <button routerLink="/customers">
+            Customer Leads
+        </button>
+
+        <button routerLink="/lead-types">
+            Lead Types
+        </button>
+
+        <button routerLink="/follow-ups">
+            Follow Ups
+        </button>
+
+        <button routerLink="/notes">
+            Notes
+        </button>
+
+    </div>
+
+</div>

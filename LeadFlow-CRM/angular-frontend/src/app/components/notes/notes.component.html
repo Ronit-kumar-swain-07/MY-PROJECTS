@@ -1,0 +1,135 @@
+<div class="page-container">
+
+    <div class="header">
+
+        <h2>Customer Notes</h2>
+
+        <button class="btn-add"
+                (click)="openAddModal()">
+            + Add Note
+        </button>
+
+    </div>
+
+    <div class="search-box">
+
+        <input
+                type="text"
+                [(ngModel)]="searchText"
+                placeholder="Search by Customer ID..."
+                (keyup)="search()">
+
+    </div>
+
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Customer ID</th>
+                <th>Note</th>
+                <th>Created</th>
+                <th width="170">Action</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr *ngFor="let note of notes">
+
+                <td>{{note.noteId}}</td>
+
+                <td>{{note.customerLead.customerId}}</td>
+
+                <td>{{note.note}}</td>
+
+                <td>{{note.createdAt | date:'dd-MM-yyyy HH:mm'}}</td>
+
+                <td>
+
+                    <button class="btn-edit"
+                            (click)="editNote(note)">
+                        Edit
+                    </button>
+
+                    <button class="btn-delete"
+                            (click)="deleteNote(note.noteId)">
+                        Delete
+                    </button>
+
+                </td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal-backdrop"
+     *ngIf="showModal">
+
+    <div class="modal-box">
+
+        <h3>
+
+            {{isEdit ? 'Update Note' : 'Add Note'}}
+
+        </h3>
+
+        <div class="form-group">
+
+            <label>Customer ID</label>
+
+            <input
+                    type="number"
+                    [(ngModel)]="note.customerLead.customerId">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Note</label>
+
+            <textarea
+                    rows="6"
+                    [(ngModel)]="note.note">
+            </textarea>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+                    class="btn-save"
+                    (click)="saveNote()">
+
+                {{isEdit ? 'Update' : 'Save'}}
+
+            </button>
+
+            <button
+                    class="btn-cancel"
+                    (click)="closeModal()">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

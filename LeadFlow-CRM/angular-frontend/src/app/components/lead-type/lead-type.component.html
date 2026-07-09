@@ -1,0 +1,134 @@
+<div class="page-container">
+
+    <div class="header">
+
+        <h2>Lead Type Management</h2>
+
+        <button class="btn-add"
+                (click)="openAddModal()">
+            + Add Lead Type
+        </button>
+
+    </div>
+
+    <div class="search-box">
+
+        <input
+                type="text"
+                placeholder="Search Lead Type..."
+                [(ngModel)]="searchText"
+                (keyup)="search()">
+
+    </div>
+
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Lead Type</th>
+                <th>Description</th>
+                <th width="170">Action</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr *ngFor="let lead of leadTypes">
+
+                <td>{{lead.leadTypeId}}</td>
+
+                <td>{{lead.leadTypeName}}</td>
+
+                <td>{{lead.description}}</td>
+
+                <td>
+
+                    <button
+                            class="btn-edit"
+                            (click)="editLeadType(lead)">
+                        Edit
+                    </button>
+
+                    <button
+                            class="btn-delete"
+                            (click)="deleteLeadType(lead.leadTypeId)">
+                        Delete
+                    </button>
+
+                </td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal-backdrop"
+     *ngIf="showModal">
+
+    <div class="modal-box">
+
+        <h3>
+
+            {{isEdit ? 'Update Lead Type' : 'Add Lead Type'}}
+
+        </h3>
+
+        <div class="form-group">
+
+            <label>Lead Type</label>
+
+            <input
+                    type="text"
+                    [(ngModel)]="leadType.leadTypeName">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Description</label>
+
+            <textarea
+                    rows="5"
+                    [(ngModel)]="leadType.description">
+            </textarea>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+                    class="btn-save"
+                    (click)="saveLeadType()">
+
+                {{isEdit ? 'Update' : 'Save'}}
+
+            </button>
+
+            <button
+                    class="btn-cancel"
+                    (click)="closeModal()">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

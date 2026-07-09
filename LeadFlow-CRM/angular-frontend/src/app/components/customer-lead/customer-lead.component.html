@@ -1,0 +1,326 @@
+<div class="lead-container">
+
+    <div class="page-header">
+
+        <h2>
+            <i class="fa fa-users"></i>
+            Customer Leads
+        </h2>
+
+        <div class="header-buttons">
+
+            <button class="btn btn-success" (click)="exportToExcel()">
+
+                <i class="bi bi-file-earmark-excel"></i>
+                Excel
+
+            </button>
+
+            <button class="btn btn-danger" (click)="downloadPDF()">
+
+                <i class="bi bi-file-earmark-pdf"></i>
+                PDF
+
+            </button>
+
+            <button class="btn btn-primary" (click)="openAddModal()">
+
+                <i class="fa fa-plus"></i>
+                Add Lead
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-box">
+
+        <input type="text" placeholder="Search customer..." [(ngModel)]="searchKeyword" (keyup)="searchLead()">
+
+    </div>
+
+    <!-- Table -->
+
+    <table id="leadTable" class="table table-hover table-bordered mt-3">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Lead Type</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Assigned</th>
+                <th>Next Follow Up</th>
+                <th width="170">Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let lead of leads">
+
+                <td>{{lead.customerId}}</td>
+                <td>{{lead.customerName}}</td>
+                <td>{{lead.mobile}}</td>
+                <td>{{lead.email}}</td>
+                <td>{{lead.city}}</td>
+                <td>{{lead.leadType?.leadTypeName}}</td>
+
+                <td>
+
+                    <span class="badge" [ngClass]="{
+
+                    'bg-secondary':lead.status=='NEW' || lead.status=='NOT_INTERESTED',
+
+                    'bg-info':lead.status=='CONTACTED',
+
+                    'bg-warning text-dark':lead.status=='FOLLOW_UP',
+
+                    'bg-primary':lead.status=='VISIT_SCHEDULED',
+
+                    'bg-dark':lead.status=='NEGOTIATION',
+
+                    'bg-success':lead.status=='CLOSED_WON' || lead.status=='INTERESTED',
+
+                    'bg-danger':lead.status=='CLOSED_LOST'
+
+                }">
+
+                        {{lead.status}}
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    <span class="badge" [ngClass]="{
+
+                    'bg-danger':lead.priority=='HIGH',
+
+                    'bg-warning text-dark':lead.priority=='MEDIUM',
+
+                    'bg-success':lead.priority=='LOW'
+
+                }">
+
+                        {{lead.priority}}
+
+                    </span>
+
+                </td>
+
+                <td>{{lead.assignedTo}}</td>
+
+                <td>{{lead.nextFollowUpDate | date}}</td>
+
+                <td>
+
+                    <button class="btn btn-warning btn-sm me-2" (click)="editLead(lead)">
+
+                        Edit
+
+                    </button>
+
+                    <button class="btn btn-danger btn-sm" (click)="deleteLead(lead.customerId)">
+
+                        Delete
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ========================= -->
+
+<!-- Bootstrap Modal -->
+
+<!-- ========================= -->
+
+<div class="modal fade" id="leadModal" tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header bg-primary text-white">
+
+                <h5>
+
+                    {{isEdit?'Update Lead':'Add Customer Lead'}}
+
+                </h5>
+
+                <button class="btn-close btn-close-white" data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <form>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Customer Name</label>
+
+                            <input class="form-control" [(ngModel)]="lead.customerName" name="customerName">
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Mobile</label>
+
+                            <input class="form-control" [(ngModel)]="lead.mobile" name="mobile">
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Email</label>
+
+                            <input class="form-control" [(ngModel)]="lead.email" name="email">
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>City</label>
+
+                            <input class="form-control" [(ngModel)]="lead.city" name="city">
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Lead Type</label>
+
+                            <select class="form-select" [(ngModel)]="lead.leadType.leadTypeId" name="leadType">
+
+                                <option *ngFor="let type of leadTypes" [value]="type.leadTypeId">
+
+                                    {{type.leadTypeName}}
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Status</label>
+
+                            <select class="form-select" [(ngModel)]="lead.status" name="status">
+
+                                <option>NEW</option>
+                                <option>CONTACTED</option>
+                                <option>INTERESTED</option>
+                                <option>FOLLOW_UP</option>
+                                <option>VISIT_SCHEDULED</option>
+                                <option>NEGOTIATION</option>
+                                <option>CLOSED_WON</option>
+                                <option>CLOSED_LOST</option>
+                                <option>NOT_INTERESTED</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Priority</label>
+
+                            <select class="form-select" [(ngModel)]="lead.priority" name="priority">
+
+                                <option>HIGH</option>
+                                <option>MEDIUM</option>
+                                <option>LOW</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Assigned To</label>
+
+                            <input class="form-control" [(ngModel)]="lead.assignedTo" name="assignedTo">
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Next Follow Up</label>
+
+                            <input type="date" class="form-control" [(ngModel)]="lead.nextFollowUpDate" name="nextDate">
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Source</label>
+
+                            <input class="form-control" [(ngModel)]="lead.leadSource" name="source">
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <label>Address</label>
+
+                            <textarea class="form-control" rows="2" [(ngModel)]="lead.address" name="address">
+
+                            </textarea>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-secondary" data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+                <button class="btn btn-success" (click)="saveLead()">
+
+                    {{isEdit?'Update':'Save'}}
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

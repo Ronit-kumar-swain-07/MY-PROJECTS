@@ -1,0 +1,504 @@
+/* ===========================
+   Page Layout
+=========================== */
+
+.page-container {
+    padding: 25px;
+    background: #f5f7fb;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    color: #1f2937;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.btn-add {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-add:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   Search
+=========================== */
+
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+
+    width: 320px;
+    max-width: 100%;
+
+    padding: 12px 16px;
+
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: .3s;
+}
+
+.search-box input:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+/* ===========================
+   Table Card
+=========================== */
+
+.table-card {
+
+    background: white;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+
+}
+
+/* ===========================
+   Table
+=========================== */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+thead {
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+thead th {
+
+    padding: 16px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+tbody td {
+
+    padding: 14px 16px;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 14px;
+
+}
+
+tbody tr {
+
+    transition: .25s;
+
+}
+
+tbody tr:hover {
+
+    background: #f3f8ff;
+
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn-edit {
+
+    background: #10b981;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
+
+    margin-right: 8px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.btn-edit:hover {
+
+    background: #059669;
+
+}
+
+.btn-delete {
+
+    background: #ef4444;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.btn-delete:hover {
+
+    background: #dc2626;
+
+}
+
+/* ===========================
+   Status Badges
+=========================== */
+
+.status {
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    display: inline-block;
+
+}
+
+.new {
+    background: #3b82f6;
+}
+
+.contacted {
+    background: #8b5cf6;
+}
+
+.interested {
+    background: #10b981;
+}
+
+.follow_up {
+    background: #f59e0b;
+}
+
+.visit_scheduled {
+    background: #14b8a6;
+}
+
+.negotiation {
+    background: #ec4899;
+}
+
+.closed_won {
+    background: #16a34a;
+}
+
+.closed_lost {
+    background: #dc2626;
+}
+
+.not_interested {
+    background: #6b7280;
+}
+
+/* ===========================
+   Modal
+=========================== */
+
+.modal-backdrop {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.45);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+
+}
+
+.modal-box {
+
+    width: 720px;
+
+    max-width: 95%;
+
+    background: rgba(255,255,255,.95);
+
+    backdrop-filter: blur(15px);
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow: 0 15px 45px rgba(0,0,0,.25);
+
+    animation: popup .25s ease;
+
+}
+
+@keyframes popup {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(.9);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+.modal-box h3 {
+
+    margin-bottom: 20px;
+
+    color: #1f2937;
+
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 18px;
+
+}
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.form-group label {
+
+    margin-bottom: 6px;
+
+    font-weight: 600;
+
+    color: #374151;
+
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #d1d5db;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: .3s;
+
+}
+
+.form-group textarea {
+
+    resize: vertical;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+.form-group textarea {
+
+    grid-column: span 2;
+
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.modal-footer {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 25px;
+
+    gap: 12px;
+
+}
+
+.btn-save {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+}
+
+.btn-save:hover {
+
+    background: #1d4ed8;
+
+}
+
+.btn-cancel {
+
+    background: #6b7280;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+}
+
+.btn-cancel:hover {
+
+    background: #4b5563;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .header{
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .table-card{
+
+        overflow-x:auto;
+
+    }
+
+    table{
+
+        min-width:900px;
+
+    }
+
+    .modal-box{
+
+        width:95%;
+
+        padding:20px;
+
+    }
+
+}

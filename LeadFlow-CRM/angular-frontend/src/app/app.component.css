@@ -1,0 +1,22 @@
+.main-content{
+    margin-left:260px;
+    background:#F5F7FB;
+    min-height:100vh;
+    transition:0.3s;
+}
+
+.page-content{
+    padding:25px;
+}
+
+body.dark-theme .main-content{
+    background:#111827 !important;
+}
+
+@media(max-width:768px){
+
+.main-content{
+    margin-left:75px;
+}
+
+}
